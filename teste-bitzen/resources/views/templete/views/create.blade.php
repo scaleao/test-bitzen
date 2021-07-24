@@ -4,11 +4,11 @@
 
     <main class="px-3 mt-5">
         <div class="container justify-content-center mt-5">
-            <h1 class="mb-3">Cadastro vendedor</h1>
+            <h1 class="mb-3">Cadastro</h1>
             <form method="POST" action="{{ route('user.store') }}" class="row g-3 col-12 justify-content-center">
                 {{ csrf_field() }}
                 <div class="col-8">
-                    <label for="name" class="form-label">Nome do vendedor</label>
+                    <label for="name" class="form-label">Nome</label>
                     <input type="text" class="form-control bg-dark border border-1 border-top-0 border-end-0 border-start-0 border-white text-white" id="name" placeholder="João" name="name">
                     @error('name')
                             <div class="alert alert-danger">{{ $message }}</div>
@@ -32,7 +32,7 @@
                   <button type="submit" class="btn btn-success">Cadastrar vendedor</button>
                 </div>
                 <div class="mt-5 text-white-50">
-                    <p>Já é cadastrado? Então <a href="{{ route('home.enter') }}" class="text-white">clique aqui</a></p>
+                    <p>Já é cadastrado? Então <a href="#" class="text-white">clique aqui</a></p>
                 </div>
             </form>
         </div>
