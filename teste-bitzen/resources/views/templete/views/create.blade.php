@@ -5,7 +5,7 @@
     <main class="px-3 mt-5">
         <div class="container justify-content-center mt-5">
             <h1 class="mb-3">Cadastro</h1>
-            <form method="POST" action="#" class="row g-3 col-12 justify-content-center">
+            <form method="POST" action="{{ route('user.store') }}" class="row g-3 col-12 justify-content-center">
                 {{ csrf_field() }}
                 <div class="col-8">
                     <label for="name" class="form-label">Nome</label>

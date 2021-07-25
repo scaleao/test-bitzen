@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ViewsController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +15,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('templete.views.index');
+Route::get('/', [ViewsController::class, 'index'])->name('home');
+Route::get('/login/{message?}', [ViewsController::class, 'signin'])->name('home.signin');
+Route::post('/auth', [UserController::class, 'auth'])->name('user.auth');
+Route::get('/create', [UserController::class, 'create'])->name('home.create');
+Route::post('/store', [UserController::class, 'store'])->name('user.store');
+
+Route::group(['middleware'=>'auth'],function() {
+    Route::get('/dashboard/{message?}', [ViewsController::class, 'index'])->name('dashboard');
+
+
+    Route::get('/logout', [UserController::class, 'logout'])->name('user.logout');
 });

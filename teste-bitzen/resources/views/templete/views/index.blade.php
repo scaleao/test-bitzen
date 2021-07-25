@@ -9,7 +9,7 @@
             <p>Horário de atendimento: seg/sex – 08h00 – 22h00</p>
         <p class="lead text-center  mt-5">
             <!--<a href="#" class="btn btn-lg btn-secondary fw-bold border-white bg-white text-dark">Cadastrar vendedor <i class="fas fa-sign-in-alt"></i></a>-->
-            <a href="#" class="btn btn-lg fw-bold border-white text-white" style="background-image: linear-gradient(to bottom right, #7EB464, #00A1B2);">Entrar <i class="fas fa-sign-in-alt"></i></a>
+            <a href="{{ route('home.signin') }}" class="btn btn-lg fw-bold border-white text-white" style="background-image: linear-gradient(to bottom right, #7EB464, #00A1B2);">Entrar <i class="fas fa-sign-in-alt"></i></a>
             
         </p>
     </main>
