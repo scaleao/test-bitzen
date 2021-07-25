@@ -28,11 +28,9 @@
                             <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
                 </div>
+                
                 <div class="col-7 mt-5 col">
-                  <button type="submit" class="btn btn-success">Cadastrar vendedor</button>
-                </div>
-                <div class="mt-5 text-white-50">
-                    <p>Já é cadastrado? Então <a href="#" class="text-white">clique aqui</a></p>
+                  <button type="submit" class="btn btn-success">Cadastrar Motorista</button>
                 </div>
             </form>
         </div>

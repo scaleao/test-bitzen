@@ -15,6 +15,11 @@ class CreateMotoristasTable extends Migration
     {
         Schema::create('motoristas', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('num_cnh');
+            $table->string('categoria_cnh');
+            $table->date('data_nasc');
+            $table->string('status');
             $table->timestamps();
         });
     }

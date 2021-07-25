@@ -14,7 +14,8 @@ class MotoristaController extends Controller
      */
     public function index($message = "")
     {
-        //
+        $motoristas = Motorista::get();
+        return view('templete.views.auth.motorista.index', compact('message', 'motoristas'));
     }
 
     /**
@@ -24,7 +25,7 @@ class MotoristaController extends Controller
      */
     public function create()
     {
-        //
+        return view('templete.views.auth.motorista.create');
     }
 
     /**
@@ -35,7 +36,25 @@ class MotoristaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        if($request['status'] != 'inativo' && $request['status'] != 'ativo'){
+            $request['status'] = null;
+        }
+        $request->validate([
+            'name' => 'required',
+            'num_cnh' => 'required|regex:/[0-9]{11}/',
+            'categoria_cnh' => 'required|regex:/[a-eA-E]{1}/',
+            'data_nasc' => 'required|date',
+            'status' => 'required',
+        ]);
+        $request->flash();
+        $request['categoria_cnh'] = strtoupper($request['categoria_cnh']);
+        
+        $data = $request->all();
+        $motorista = Motorista::create($data);
+        if($motorista){
+            $message = "Motorista cadastrado com sucesso !";
+            return redirect()->route('motorista.index', compact('message'));
+        }
     }
 
     /**
@@ -55,9 +74,10 @@ class MotoristaController extends Controller
      * @param  \App\Models\Motorista  $motorista
      * @return \Illuminate\Http\Response
      */
-    public function edit(Motorista $motorista)
+    public function edit($id)
     {
-        //
+        $motorista = Motorista::find($id)->first();
+        return view('templete.views.auth.motorista.edit', compact('motorista'));
     }
 
     /**
@@ -67,9 +87,26 @@ class MotoristaController extends Controller
      * @param  \App\Models\Motorista  $motorista
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Motorista $motorista)
+    public function update(Request $request, $id)
     {
-        //
+        if($request['status'] != 'inativo' && $request['status'] != 'ativo'){
+            $request['status'] = null;
+        }
+        $request->validate([
+            'name' => 'required',
+            'num_cnh' => 'required|regex:/[0-9]{11}/',
+            'categoria_cnh' => 'required|regex:/[a-eA-E]{1}/',
+            'data_nasc' => 'required|date',
+            'status' => 'required',
+        ]);
+        $request->flash();
+        $data = $request->all();
+        $update = Motorista::find($id)->update($data);
+        
+        if($update){
+            $message = "Motorista atualizado com sucesso";
+            return redirect()->route('motorista.index', $message);
+        }
     }
 
     /**
@@ -78,8 +115,12 @@ class MotoristaController extends Controller
      * @param  \App\Models\Motorista  $motorista
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Motorista $motorista)
+    public function destroy($id)
     {
-        //
+        $delete = Motorista::find($id)->delete();
+        if($delete){
+            $mensagem = "Motorista excluido com sucesso !";
+            return redirect()->route('motorista.index', $mensagem);
+        }
     }
 }

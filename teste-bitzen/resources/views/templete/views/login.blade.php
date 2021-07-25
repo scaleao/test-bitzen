@@ -3,8 +3,14 @@
 @section('conteudo')
 
     <main class="px-3 mt-5">
+        <h1>Login</h1>
         <div class="container mt-5">
-            
+            @if($message)
+                <div class="alert alert-danger alert-dismissible fade show border border-danger" role="alert">
+                    {{$message}}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+             @endif
             <form method="POST" action="{{ route('user.auth') }}" class="row g-3 col-12 justify-content-center">
                 {{ csrf_field() }}
                 <div class="col-8">

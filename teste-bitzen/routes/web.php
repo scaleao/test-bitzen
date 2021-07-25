@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ViewsController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\MotoristaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,7 +27,7 @@ Route::group(['middleware'=>'auth'],function() {
 
     Route::get('/motorista/{message?}', [MotoristaController::class, 'index'])->name('motorista.index');
     Route::get('/create-motorista', [MotoristaController::class, 'create'])->name('motorista.create');
-    Route::get('/create-motorista', [MotoristaController::class, 'store'])->name('motorista.store');
+    Route::post('/create-motorista', [MotoristaController::class, 'store'])->name('motorista.store');
     Route::get('/edit-motorista/{id}', [MotoristaController::class, 'edit'])->name('motorista.edit');
     Route::put('/update-motorista/{id}', [MotoristaController::class, 'update'])->name('motorista.update');
     Route::get('/delete-motorista/{id}', [MotoristaController::class, 'destroy'])->name('motorista.destroy');
