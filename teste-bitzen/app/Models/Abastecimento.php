@@ -8,4 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Abastecimento extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'id',
+        'veiculo_id',
+        'motorista_id',
+        'tipo_combustivel',
+        'quantidade',
+        'valor',
+    ];
 }

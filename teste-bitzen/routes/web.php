@@ -40,5 +40,9 @@ Route::group(['middleware'=>'auth'],function() {
     Route::put('/update-veiculo/{id}', [VeiculoController::class, 'update'])->name('veiculo.update');
     Route::get('/delete-veiculo/{id}', [VeiculoController::class, 'destroy'])->name('veiculo.destroy');
 
+    Route::get('/abastecimento/{message?}', [VeiculoController::class, 'index'])->name('abastecimento.index');
+    Route::get('/create-abastecimento', [VeiculoController::class, 'create'])->name('abastecimento.create');
+    Route::post('/create-abastecimento', [VeiculoController::class, 'store'])->name('abastecimento.store');
+
     Route::get('/logout', [UserController::class, 'logout'])->name('user.logout');
 });
