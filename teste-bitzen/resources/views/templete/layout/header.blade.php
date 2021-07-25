@@ -27,7 +27,7 @@
                         <a class="nav-link" href="{{ route('veiculo.index') }}">Veiculos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Abastecimentos</a>
+                        <a class="nav-link" href="{{ route('abastecimento.index') }}">Abastecimentos</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link btn btn-danger btn-sm text-white" href="{{ route('user.logout') }}">SAIR</a>
