@@ -22,7 +22,7 @@ Route::get('/create', [UserController::class, 'create'])->name('home.create');
 Route::post('/store', [UserController::class, 'store'])->name('user.store');
 
 Route::group(['middleware'=>'auth'],function() {
-    Route::get('/dashboard/{message?}', [ViewsController::class, 'index'])->name('dashboard');
+    Route::get('/dashboard/{message?}', [ViewsController::class, 'dashboard'])->name('dashboard');
 
 
     Route::get('/logout', [UserController::class, 'logout'])->name('user.logout');
