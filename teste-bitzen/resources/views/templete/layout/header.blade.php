@@ -24,7 +24,7 @@
                         <a class="nav-link" href="{{ route('motorista.index') }}">Motoristas</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Veiculos</a>
+                        <a class="nav-link" href="{{ route('veiculo.index') }}">Veiculos</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Abastecimentos</a>

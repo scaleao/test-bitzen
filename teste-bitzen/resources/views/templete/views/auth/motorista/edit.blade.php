@@ -48,7 +48,7 @@
                     @enderror
                 </div>
                 <div class="col-7 mt-5 col">
-                  <button type="submit" class="btn btn-success">Atualizar vendedor</button>
+                  <button type="submit" class="btn btn-success">Atualizar motorista</button>
                 </div>
             </form>
         </div>

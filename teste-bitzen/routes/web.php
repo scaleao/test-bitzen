@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ViewsController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\MotoristaController;
+use App\Http\Controllers\VeiculoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,7 +35,7 @@ Route::group(['middleware'=>'auth'],function() {
 
     Route::get('/veiculo/{message?}', [VeiculoController::class, 'index'])->name('veiculo.index');
     Route::get('/create-veiculo', [VeiculoController::class, 'create'])->name('veiculo.create');
-    Route::get('/create-veiculo', [VeiculoController::class, 'store'])->name('veiculo.store');
+    Route::post('/create-veiculo', [VeiculoController::class, 'store'])->name('veiculo.store');
     Route::get('/edit-veiculo/{id}', [VeiculoController::class, 'edit'])->name('veiculo.edit');
     Route::put('/update-veiculo/{id}', [VeiculoController::class, 'update'])->name('veiculo.update');
     Route::get('/delete-veiculo/{id}', [VeiculoController::class, 'destroy'])->name('veiculo.destroy');
