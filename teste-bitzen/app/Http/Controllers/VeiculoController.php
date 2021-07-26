@@ -77,7 +77,7 @@ class VeiculoController extends Controller
      */
     public function edit($id)
     {
-        $veiculo = Veiculo::find($id)->first();
+        $veiculo = Veiculo::where('id', $id)->first();
         return view('templete.views.auth.veiculo.edit', compact('veiculo'));
     }
 

@@ -18,7 +18,7 @@
                     </li>
                 @else
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="#">Dashboard</a>
+                        <a class="nav-link" aria-current="page" href="{{ route('dashboard') }}">Dashboard</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('motorista.index') }}">Motoristas</a>

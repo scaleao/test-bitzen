@@ -76,7 +76,7 @@ class MotoristaController extends Controller
      */
     public function edit($id)
     {
-        $motorista = Motorista::find($id)->first();
+        $motorista = Motorista::where('id', $id)->first();
         return view('templete.views.auth.motorista.edit', compact('motorista'));
     }
 

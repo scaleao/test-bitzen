@@ -97,9 +97,15 @@ class AbastecimentoController extends Controller
      * @param  \App\Models\Abastecimento  $abastecimento
      * @return \Illuminate\Http\Response
      */
-    public function show(Abastecimento $abastecimento)
+    public function show($message = "")
     {
-        //
+        $abastecimentos = $abastecimentos = DB::table('abastecimentos')
+            ->join('motoristas', 'abastecimentos.motorista_id', '=', 'motoristas.id')
+            ->join('veiculos', 'abastecimentos.veiculo_id', '=', 'veiculos.id')
+            ->select('motoristas.name', 'veiculos.placa', 'abastecimentos.*')
+            ->take(3)
+            ->get();
+        return view('templete.views.auth.dashboard', compact('message', 'abastecimentos'));
     }
 
     /**

@@ -4,7 +4,7 @@
 
 <main class="px-3 mt-5">
         <div class="container justify-content-center mt-5">
-            <h1 class="mb-3">Cadastro Veiculo</h1>
+            <h1 class="mb-3">Atualizar Veiculo</h1>
             <form method="POST" action="{{ route('veiculo.update',$veiculo->id) }}" class="row g-3 col-12 justify-content-center">
                 {{ csrf_field() }}
                 <input type="hidden" name="_method" value="put">

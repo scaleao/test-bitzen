@@ -25,7 +25,7 @@ Route::get('/create', [UserController::class, 'create'])->name('home.create');
 Route::post('/store', [UserController::class, 'store'])->name('user.store');
 
 Route::group(['middleware'=>'auth'],function() {
-    Route::get('/dashboard/{message?}', [ViewsController::class, 'dashboard'])->name('dashboard');
+    Route::get('/dashboard/{message?}', [AbastecimentoController::class, 'show'])->name('dashboard');
 
     Route::get('/motorista/{message?}', [MotoristaController::class, 'index'])->name('motorista.index');
     Route::get('/create-motorista', [MotoristaController::class, 'create'])->name('motorista.create');

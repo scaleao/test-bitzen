@@ -15,9 +15,4 @@ class ViewsController extends Controller
     {
         return view('templete.views.login', compact('message'));
     }
-
-    public function dashboard($message = "")
-    {
-        return view('templete.views.auth.dashboard', compact('message'));
-    }
 }
